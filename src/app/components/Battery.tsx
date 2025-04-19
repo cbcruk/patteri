@@ -17,8 +17,6 @@ export function Battery({ fetcher }: BatteryProps) {
     return null
   }
 
-  console.log(data)
-
   return (
     <>
       <motion.div
