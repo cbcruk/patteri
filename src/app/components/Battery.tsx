@@ -17,6 +17,8 @@ export function Battery({ fetcher }: BatteryProps) {
     return null
   }
 
+  console.log(data)
+
   return (
     <>
       <motion.div
@@ -26,7 +28,7 @@ export function Battery({ fetcher }: BatteryProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <>{data.acConnected ? '🔋' : '🔌'}</>
+        <>{data.acConnected ? '🔌' : '🔋'}</>
       </motion.div>
     </>
   )
