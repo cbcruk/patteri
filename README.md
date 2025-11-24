@@ -1,28 +1,69 @@
-## 🔋 Patteri
+# is-charging
 
-이 앱은 노트북이 전원에 연결되어 있는지, 아니면 배터리로 작동 중인지를 실시간으로 알려줍니다.
+> Check if the device battery is charging
 
-### ✅ 어떤 기능인가요?
+Works in Node.js and browsers.
 
-- 노트북이 **충전 중이면 플러그(🔌)**,
-- **배터리로 동작 중이면 배터리 아이콘(🔋)** 이 화면에 나타납니다.
-- 1초마다 상태가 자동으로 갱신됩니다.
-
-### 🧱 어떻게 만들어졌나요?
-
-- **서버**에서 랩탑의 배터리 정보를 확인합니다.
-- **웹 브라우저**에서는 그 정보를 화면에 보여줍니다.
-- 화면에 나타나는 아이콘은 부드러운 애니메이션으로 바뀝니다.
-
-### 📦 설치 및 실행
+## Install
 
 ```sh
-pnpm install
-pnpm run dev
+npm install is-charging
 ```
 
-### 🧠 구조 요약
+## Usage
 
-- `lib/battery.ts`: 서버에서 배터리 정보를 가져오는 함수
-- `components/Battery.tsx`: 클라이언트에서 `SWR`로 주기적으로 배터리 상태를 받아와 이모지로 표시
-- `app/page.tsx`: `Battery` 컴포넌트를 서버 액션과 함께 렌더링
+```js
+import isCharging from 'is-charging'
+
+console.log(await isCharging())
+//=> true
+```
+
+## API
+
+### isCharging(options?)
+
+Returns a `Promise<boolean>` that resolves to `true` if the battery is charging, otherwise `false`.
+
+#### options
+
+Type: `object`
+
+##### timeout
+
+Type: `number`\
+Default: `5000`
+
+The time in milliseconds to wait for a response.
+
+##### signal
+
+Type: [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal)
+
+You can abort the request using an `AbortSignal`.
+
+```js
+import isCharging from 'is-charging'
+
+const controller = new AbortController()
+
+setTimeout(() => controller.abort(), 3000)
+
+console.log(await isCharging({ signal: controller.signal }))
+```
+
+## How it works
+
+### Node.js
+
+Uses [systeminformation](https://github.com/sebhildebrandt/systeminformation) to get battery status.
+
+### Browser
+
+Uses the [Battery Status API](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API) (`navigator.getBattery()`).
+
+> **Note:** The Battery Status API has limited browser support and may not be available in all browsers.
+
+## License
+
+MIT

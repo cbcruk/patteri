@@ -1,0 +1,48 @@
+{
+  "name": "is-charging",
+  "version": "0.0.1",
+  "description": "Check if the device battery is charging",
+  "type": "module",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "node": "./dist/index.js",
+    "default": "./dist/browser.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "battery",
+    "charging",
+    "power",
+    "check",
+    "status",
+    "is-charging"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "systeminformation": "^5.25.11"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5",
+    "vitest": "^3"
+  }
+}
