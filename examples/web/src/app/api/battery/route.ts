@@ -1,7 +1,7 @@
-import isCharging from 'is-charging'
+import isPluggedIn from 'is-plugged-in'
 
 export async function GET() {
-  const charging = await isCharging()
+  const pluggedIn = await isPluggedIn()
 
-  return Response.json({ charging })
+  return Response.json({ pluggedIn })
 }

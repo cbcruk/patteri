@@ -3,12 +3,12 @@
 import { motion } from 'motion/react'
 import useSWR, { Fetcher } from 'swr'
 
-type ChargingData = {
-  charging: boolean
+type PluggedInData = {
+  pluggedIn: boolean
 }
 
 type BatteryProps = {
-  fetcher: Fetcher<ChargingData>
+  fetcher: Fetcher<PluggedInData>
 }
 
 export function Battery({ fetcher }: BatteryProps) {
@@ -22,13 +22,13 @@ export function Battery({ fetcher }: BatteryProps) {
 
   return (
     <motion.div
-      key={`${data.charging}`}
+      key={`${data.pluggedIn}`}
       className="text-9xl"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      {data.charging ? '🔌' : '🔋'}
+      {data.pluggedIn ? '🔌' : '🔋'}
     </motion.div>
   )
 }

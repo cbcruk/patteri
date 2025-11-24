@@ -1,5 +1,5 @@
 import { Battery } from './components/Battery'
-import isCharging from 'is-charging'
+import isPluggedIn from 'is-plugged-in'
 
 export default function Home() {
   return (
@@ -8,8 +8,8 @@ export default function Home() {
         fetcher={async () => {
           'use server'
 
-          const charging = await isCharging()
-          return { charging }
+          const pluggedIn = await isPluggedIn()
+          return { pluggedIn }
         }}
       />
     </div>

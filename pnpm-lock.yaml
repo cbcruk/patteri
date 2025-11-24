@@ -14,9 +14,9 @@ importers:
 
   examples/web:
     dependencies:
-      is-charging:
+      is-plugged-in:
         specifier: workspace:*
-        version: link:../../packages/is-charging
+        version: link:../../packages/is-plugged-in
       motion:
         specifier: ^12.7.4
         version: 12.23.24(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -61,7 +61,7 @@ importers:
         specifier: ^5
         version: 5.9.3
 
-  packages/is-charging:
+  packages/is-plugged-in:
     dependencies:
       systeminformation:
         specifier: ^5.25.11

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import isCharging from './index.js'
+import isPluggedIn from './index.js'
 
 vi.mock('systeminformation', () => ({
   default: {
@@ -9,27 +9,27 @@ vi.mock('systeminformation', () => ({
 
 import si from 'systeminformation'
 
-describe('isCharging', () => {
+describe('isPluggedIn', () => {
   beforeEach(() => {
     vi.clearAllMocks()
   })
 
-  it('returns true when battery is charging', async () => {
+  it('returns true when plugged in', async () => {
     vi.mocked(si.battery).mockResolvedValue({
       isCharging: true,
     } as Awaited<ReturnType<typeof si.battery>>)
 
-    const result = await isCharging()
+    const result = await isPluggedIn()
 
     expect(result).toBe(true)
   })
 
-  it('returns false when battery is not charging', async () => {
+  it('returns false when not plugged in', async () => {
     vi.mocked(si.battery).mockResolvedValue({
       isCharging: false,
     } as Awaited<ReturnType<typeof si.battery>>)
 
-    const result = await isCharging()
+    const result = await isPluggedIn()
 
     expect(result).toBe(false)
   })
@@ -39,7 +39,7 @@ describe('isCharging', () => {
       isCharging: true,
     } as Awaited<ReturnType<typeof si.battery>>)
 
-    const result = await isCharging({ timeout: 1000 })
+    const result = await isPluggedIn({ timeout: 1000 })
 
     expect(result).toBe(true)
   })
@@ -50,7 +50,7 @@ describe('isCharging', () => {
     } as Awaited<ReturnType<typeof si.battery>>)
 
     const controller = new AbortController()
-    const result = await isCharging({ signal: controller.signal })
+    const result = await isPluggedIn({ signal: controller.signal })
 
     expect(result).toBe(true)
   })

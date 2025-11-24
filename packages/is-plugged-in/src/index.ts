@@ -5,7 +5,7 @@ export type Options = {
   readonly signal?: AbortSignal
 }
 
-export default async function isCharging(
+export default async function isPluggedIn(
   options: Options = {}
 ): Promise<boolean> {
   const { timeout = 5000, signal } = options

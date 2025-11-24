@@ -1,7 +1,7 @@
 {
-  "name": "is-charging",
+  "name": "is-plugged-in",
   "version": "0.0.1",
-  "description": "Check if the device battery is charging",
+  "description": "Check if the device is plugged into a power source",
   "type": "module",
   "exports": {
     "types": "./dist/index.d.ts",
@@ -24,9 +24,10 @@
     "battery",
     "charging",
     "power",
+    "plugged",
+    "ac",
     "check",
-    "status",
-    "is-charging"
+    "status"
   ],
   "author": "",
   "license": "MIT",

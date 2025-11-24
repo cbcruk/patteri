@@ -1,29 +1,29 @@
-# is-charging
+# is-plugged-in
 
-> Check if the device battery is charging
+> Check if the device is plugged into a power source
 
 Works in Node.js and browsers.
 
 ## Install
 
 ```sh
-npm install is-charging
+npm install is-plugged-in
 ```
 
 ## Usage
 
 ```js
-import isCharging from 'is-charging'
+import isPluggedIn from 'is-plugged-in'
 
-console.log(await isCharging())
+console.log(await isPluggedIn())
 //=> true
 ```
 
 ## API
 
-### isCharging(options?)
+### isPluggedIn(options?)
 
-Returns a `Promise<boolean>` that resolves to `true` if the battery is charging, otherwise `false`.
+Returns a `Promise<boolean>` that resolves to `true` if the device is plugged into a power source, otherwise `false`.
 
 #### options
 
@@ -43,20 +43,20 @@ Type: [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSign
 You can abort the request using an `AbortSignal`.
 
 ```js
-import isCharging from 'is-charging'
+import isPluggedIn from 'is-plugged-in'
 
 const controller = new AbortController()
 
 setTimeout(() => controller.abort(), 3000)
 
-console.log(await isCharging({ signal: controller.signal }))
+console.log(await isPluggedIn({ signal: controller.signal }))
 ```
 
 ## How it works
 
 ### Node.js
 
-Uses [systeminformation](https://github.com/sebhildebrandt/systeminformation) to get battery status.
+Uses [systeminformation](https://github.com/sebhildebrandt/systeminformation) to get power status.
 
 ### Browser
 

@@ -1,9 +1,9 @@
 {
-  "name": "is-charging-monorepo",
+  "name": "is-plugged-in-monorepo",
   "private": true,
   "scripts": {
     "dev": "pnpm -r dev",
-    "dev:web": "pnpm --filter @is-charging/web-example dev",
+    "dev:web": "pnpm --filter @is-plugged-in/web-example dev",
     "build": "pnpm -r build",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint"
