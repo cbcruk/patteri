@@ -29,12 +29,16 @@
     "check",
     "status"
   ],
-  "author": "",
+  "author": "cbcruk",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/cbcruk/is-plugged-in.git"
   },
+  "bugs": {
+    "url": "https://github.com/cbcruk/is-plugged-in/issues"
+  },
+  "homepage": "https://github.com/cbcruk/is-plugged-in#readme",
   "engines": {
     "node": ">=20"
   },
